@@ -22,6 +22,14 @@
         font-size: 64px;
         
       }
+      #mascota {
+        position: absolute;
+        white-space: pre; /* Mantiene el formato ASCII */
+        font-family: monospace;
+        font-size: 16px;
+        pointer-events: none;
+        transition: transform 0.07s linear;
+      }
     </style>
   </head>
   <body>
@@ -33,5 +41,19 @@
 	<h1>¡HALA MADRID!</h1>
 
     <footer> Este es el pie de página ~ Año 2005 </footer>
+    
+    <div id="mascota">
+(\_/)
+( •_•)
+ />🍪
+    </div>
+
+    <script>
+      const mascota = document.getElementById("mascota");
+
+      document.addEventListener("mousemove", (e) => {
+        mascota.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      });
+    </script>
   </body>
 </html>
