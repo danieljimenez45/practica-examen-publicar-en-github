@@ -28,7 +28,7 @@
         font-family: monospace;
         font-size: 16px;
         pointer-events: none;
-        transition: transform 0.07s linear;
+        transition: left 0.05s linear, top 0.05s linear; /* movimiento suave */
       }
     </style>
   </head>
@@ -42,17 +42,26 @@
 
     <footer> Este es el pie de página ~ Año 2005 </footer>
     
+    
     <div id="mascota">
 (\_/)
 ( •_•)
- />🍪
+/>🍪
     </div>
 
     <script>
       const mascota = document.getElementById("mascota");
 
       document.addEventListener("mousemove", (e) => {
-        mascota.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        // Obtener dimensiones de la mascota
+        const rect = mascota.getBoundingClientRect();
+
+        // Centrar la mascota respecto al cursor
+        const x = e.clientX - rect.width / 2;
+        const y = e.clientY - rect.height / 2;
+
+        mascota.style.left = x + "px";
+        mascota.style.top = y + "px";
       });
     </script>
   </body>
